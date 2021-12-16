@@ -18,7 +18,7 @@
   until: result is succeeded
   when:
     - mds_group_name in group_names
-    - ansible_facts['os_family'] in ['Suse', 'RedHat']
+    - ansible_facts['os_family'] in ['Suse', 'RedHat', 'Rocky']
 
 - name: create mds keyring
   ceph_key:

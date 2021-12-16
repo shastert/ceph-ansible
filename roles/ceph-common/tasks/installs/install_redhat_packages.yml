@@ -15,6 +15,14 @@
   until: result is succeeded
   when: ansible_facts['distribution'] == 'CentOS'
 
+- name: install rocky dependencies
+  yum:
+    name: "{{ centos_package_dependencies }}"
+    state: present
+  register: result
+  until: result is succeeded
+  when: ansible_facts['distribution'] == 'Rocky'
+
 - name: install redhat ceph packages
   package:
     name: "{{ redhat_ceph_pkgs | unique }}"

@@ -6,7 +6,7 @@
 - name: include installs/install_redhat_packages.yml
   include_tasks: installs/install_redhat_packages.yml
   when:
-    - ansible_facts['os_family'] == 'RedHat'
+    - ansible_facts['os_family'] in ['RedHat', 'Rocky']
     - (ceph_origin == 'repository' or ceph_origin == 'distro')
   tags: package-install
 
@@ -66,6 +66,6 @@
 - name: include selinux.yml
   include_tasks: selinux.yml
   when:
-    - ansible_facts['os_family'] == 'RedHat'
+    - ansible_facts['os_family'] in ['RedHat', 'Rocky']
     - inventory_hostname in groups.get(nfs_group_name, [])
       or inventory_hostname in groups.get(rgwloadbalancer_group_name, [])

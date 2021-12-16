@@ -1,0 +1,30 @@
+[all:vars]
+ansible_ssh_user=root
+ansible_become=true
+ansible_become_method=sudo
+ansible_become_user=root
+
+[mons]
+ceph-vm1 ansible_ssh_host=172.16.0.48
+ceph-vm2 ansible_ssh_host=172.16.0.49
+ceph-vm3 ansible_ssh_host=172.16.0.54
+
+[mdss]
+ceph-vm1 ansible_ssh_host=172.16.0.48
+ceph-vm2 ansible_ssh_host=172.16.0.49
+ceph-vm3 ansible_ssh_host=172.16.0.54
+
+[mgrs]
+ceph-vm1 ansible_ssh_host=172.16.0.48
+ceph-vm2 ansible_ssh_host=172.16.0.49
+ceph-vm3 ansible_ssh_host=172.16.0.54
+
+[osds]
+ceph-vm1 ansible_ssh_host=172.16.0.48
+ceph-vm2 ansible_ssh_host=172.16.0.49
+ceph-vm3 ansible_ssh_host=172.16.0.54
+
+[grafana-server]
+ceph-vm1 ansible_ssh_host=172.16.0.48
+ceph-vm2 ansible_ssh_host=172.16.0.49
+ceph-vm3 ansible_ssh_host=172.16.0.54
